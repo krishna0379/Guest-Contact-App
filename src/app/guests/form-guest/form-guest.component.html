@@ -1,1 +1,36 @@
-<p>form-guest works!</p>
+<form (submit)="saveChanges()" [formGroup]="frmGroup">
+  <table>
+    <tr>
+      <td>
+        <div>
+          <label>Guest Name :</label>
+          <input
+            type="text"
+            formControlName="name"
+            placeholder="Enter Guest Name Here"
+          />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <label>Contact Number :</label>
+          <input
+            type="text"
+            formControlName="contactNumber"
+            placeholder="Enter Phone Number"
+          />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div align="center">
+          <button>Save</button> |
+          <button routerLink="/guests">Cancel</button>
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>

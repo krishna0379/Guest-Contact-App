@@ -12,13 +12,25 @@ export class ListGuestComponent implements OnInit {
   constructor(private guestService: GuestService) {
     this.guests = [];
   }
+  ngOnInit(): void {
+    this.loadedGuests();
+  }
+
   loadedGuests() {
     this.guestService.getAllGuest().subscribe((guestList: Guest[]) => {
       this.guests = guestList;
     });
   }
 
-  ngOnInit(): void {
-    this.loadedGuests();
+  deleteGuest(id: number) {
+    this.guestService.deleteGuest(id).subscribe(
+      () => {
+        alert('Record has been Deleted Successfully..!!');
+        this.loadedGuests();
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 }

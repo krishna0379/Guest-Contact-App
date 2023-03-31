@@ -4,24 +4,35 @@
 <hr />
 <p>Guest details will be appeared here...</p>
 
-<div class="tabel-responsive">
-  <table border="2" class="table table-hover">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>ContactNumber</th>
-        <th><button>Add New Guest</button></th>
-      </tr>
-    </thead>
+<table border="2">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Contact Number</th>
+      <th><button routerLink="/guests/add">Add New Guest</button></th>
+    </tr>
+  </thead>
 
-    <tbody>
+  <tbody>
+    <ng-container *ngIf="guests.length > 0">
       <tr *ngFor="let guest of guests">
         <th>{{ guest.id }}</th>
-        <th>{{ guest.name }}</th>
+        <th>{{ guest.name | uppercase }}</th>
         <th>{{ guest.contactNumber }}</th>
-        <th><button>Edit</button> | <button>Delete</button></th>
+        <th>
+          <button routerLink="/guests/update/{{guest.id}}">Edit</button> |
+          <button (click)="deleteGuest(guest.id)">Delete</button>
+        </th>
       </tr>
-    </tbody>
-  </table>
-</div>
+    </ng-container>
+    <ng-container *ngIf="guests.length === 0">
+      <tr>
+        <td>
+          No Guests Records are there as of Now, Please add some Records by
+          Clicking Add New Guest Button
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

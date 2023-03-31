@@ -11,7 +11,7 @@ export class GuestService {
   private guestApiURL = environment.guestApiURL;
 
   constructor(private httpClient: HttpClient) {}
-
+// here we will basic curd operations methods  vth urls  to fetch the data from DB
   getAllGuest(): Observable<Guest[]> {
     return this.httpClient.get<Guest[]>(this.guestApiURL);
   }

@@ -20,7 +20,7 @@ const routes: Routes = [
     component: AddGuestComponent /**Url :http://localhost:4200/guests/add */,
   },
   {
-    path: 'guests/update',
+    path: 'guests/update/:id',
     component:
       UpdateGuestComponent /**Url :http://localhost:4200/guests/update */,
   },

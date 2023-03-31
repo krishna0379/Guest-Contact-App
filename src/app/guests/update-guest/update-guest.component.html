@@ -1,1 +1,8 @@
-<p>update-guest works!</p>
+<div>
+  <h2>Update Phone Guest Record</h2>
+  <app-form-guest
+    *ngIf="model"
+    [model]="model"
+    (onGuestEvent)="saveChanges($event)"
+  ></app-form-guest>
+</div>
