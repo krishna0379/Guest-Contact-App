@@ -1,0 +1,27 @@
+<strong><a href="/">Home</a></strong>
+<br />
+<h2>Guest List</h2>
+<hr />
+<p>Guest details will be appeared here...</p>
+
+<div class="tabel-responsive">
+  <table border="2" class="table table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>ContactNumber</th>
+        <th><button>Add New Guest</button></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let guest of guests">
+        <th>{{ guest.id }}</th>
+        <th>{{ guest.name }}</th>
+        <th>{{ guest.contactNumber }}</th>
+        <th><button>Edit</button> | <button>Delete</button></th>
+      </tr>
+    </tbody>
+  </table>
+</div>
